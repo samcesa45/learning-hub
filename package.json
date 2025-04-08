@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node ./dist/index.js",
-    "build": "tsc",
+    "build": "npx tsc",
     "dev": "NODE_ENV=development nodemon ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
