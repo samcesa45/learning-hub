@@ -15,7 +15,7 @@ const contact_1 = __importDefault(require("./routes/contact"));
 const profile_1 = __importDefault(require("./routes/profile"));
 const authenticationToken_1 = __importDefault(require("./utils/authenticationToken"));
 mongoose_1.default.set('strictQuery', false);
-logger_1.default.info('connecting to ', config_1.default.MONGODB_URI);
+// logger.info('connecting to ', config.MONGODB_URI!)
 mongoose_1.default.connect(config_1.default.MONGODB_URI)
     .then(() => {
     logger_1.default.info('connected to MongoDB');
