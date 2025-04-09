@@ -10,7 +10,7 @@ export const getUserProfile = async (req:Request, res:Response) => {
      return;
     }
 
-    res.json(user);
+    res.json({data: user });
 }
 
 export const updateUserProfile = async (req:Request, res:Response) => {

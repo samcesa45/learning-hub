@@ -21,7 +21,7 @@ const getUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.status(404).json({ message: 'User not found' });
         return;
     }
-    res.json(user);
+    res.json({ data: user });
 });
 exports.getUserProfile = getUserProfile;
 const updateUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

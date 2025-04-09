@@ -19,7 +19,7 @@ export const listContacts = async (req:Request, res:Response) => {
    
     try {
         const contacts = await Contact.find({userId})
-        res.json(contacts);
+        res.json({data: contacts });
     } catch (error) {
         res.status(500).json({message:'Failed to fetch contact lists'})
     }
@@ -49,7 +49,7 @@ export const searchContacts = async (req:Request, res:Response) => {
             userId,
             name:{$regex:query, $options:'i'}
         });
-        res.json(contacts);
+        res.json({ data: contacts });
     } catch (error) {
         res.status(500).json({message:'Failed to search contacts'})
     }

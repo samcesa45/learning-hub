@@ -30,7 +30,7 @@ const listContacts = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const userId = req.user.id;
     try {
         const contacts = yield contact_1.default.find({ userId });
-        res.json(contacts);
+        res.json({ data: contacts });
     }
     catch (error) {
         res.status(500).json({ message: 'Failed to fetch contact lists' });
@@ -58,7 +58,7 @@ const searchContacts = (req, res) => __awaiter(void 0, void 0, void 0, function*
             userId,
             name: { $regex: query, $options: 'i' }
         });
-        res.json(contacts);
+        res.json({ data: contacts });
     }
     catch (error) {
         res.status(500).json({ message: 'Failed to search contacts' });
