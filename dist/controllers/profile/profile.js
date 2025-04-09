@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUserProfile = exports.getUserProfile = void 0;
+exports.updateUserProfile = exports.getUserById = exports.getUserProfile = void 0;
 const user_1 = __importDefault(require("../../models/user"));
 const getUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = req.user.id;
@@ -24,6 +24,21 @@ const getUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function*
     res.json({ data: user });
 });
 exports.getUserProfile = getUserProfile;
+const getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    try {
+        const user = yield user_1.default.findById(id).select('-passwordHash');
+        if (!user) {
+            res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Something went wrong' });
+    }
+});
+exports.getUserById = getUserById;
 const updateUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = req.user.id;
     const { full_name, contact_number, email } = req.body;
