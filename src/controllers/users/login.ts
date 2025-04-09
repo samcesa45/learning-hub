@@ -3,7 +3,7 @@ import express, { Request, Response } from "express";
 import jwt from 'jsonwebtoken'
 import User from '../../models/user';
 
-const TOKEN_EXPIRY = 60 * 60
+const TOKEN_EXPIRY = 60 * 60 * 24;
 
 const login =  async (req: Request , res: any) => {
     const {username, password} = req.body

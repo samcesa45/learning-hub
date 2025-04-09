@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const user_1 = __importDefault(require("../../models/user"));
-const TOKEN_EXPIRY = 60 * 60;
+const TOKEN_EXPIRY = 60 * 60 * 24;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, password } = req.body;
     const user = yield user_1.default.findOne({ username });

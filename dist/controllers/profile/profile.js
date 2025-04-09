@@ -31,7 +31,7 @@ const getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         if (!user) {
             res.status(404).json({ message: 'User not found' });
         }
-        res.json(user);
+        res.json({ data: user });
     }
     catch (error) {
         console.log(error);
